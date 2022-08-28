@@ -17,7 +17,6 @@ export default function Index(props) {
         >
             
             <Dashboard>
-
                 <div className="grid bg-black text-white text-left grid-cols-5 py-6 rounded-t-lg">
                     <div className='col-span-4 px-2'>
                         Photo
@@ -86,10 +85,7 @@ export default function Index(props) {
                     </div>
                 }
 
-
                 <Pagination links={props.list?.links} />
-
-
             </Dashboard>
         </Authenticated>
     );

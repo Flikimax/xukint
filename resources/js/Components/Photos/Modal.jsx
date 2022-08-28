@@ -16,7 +16,6 @@ function fullWidth(event) {
     }
 
     modal.style.display = "block";
-    // modal.classList.add("ready-close");
     modalImg.src = event.src;
     captionText.innerHTML = event.alt;
 }

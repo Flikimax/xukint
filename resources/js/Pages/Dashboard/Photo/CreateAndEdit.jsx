@@ -19,7 +19,6 @@ export default function CreateAndEdit(props) {
         <Authenticated
             auth={props.auth}
             errors={props.errors}
-            // header={<Header title={title} route="dashboard.photos.create" />}
             header={<SubHeader title={props?.title} route={props?.routeTo} />}
         >
             <Head title={title} />

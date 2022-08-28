@@ -16,7 +16,6 @@ export default function Index(props) {
         >
             
             <Dashboard>
-
                 <div className='list grid lg:grid-cols-4 grid-cols-2 '>
                     {
                         props.list.data.map(photo => (
