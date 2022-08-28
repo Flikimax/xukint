@@ -1,0 +1,4 @@
+.list.grid img {
+    aspect-ratio: 4/5;
+    object-fit: cover;
+}
