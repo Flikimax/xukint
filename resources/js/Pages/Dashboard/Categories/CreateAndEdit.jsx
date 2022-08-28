@@ -20,13 +20,7 @@ export default function CreateAndEdit(props) {
             <Dashboard>
                 <div className="mt-10 sm:mt-0">
                     <div className="mt-5 md:mt-0 md:col-span-2">
-
-                        
-
                         <form action={ props?.formAction ? route(props.formAction, props.category) : route('dashboard.categories.store') } method="POST">
-                            
-                        
-
                             { props?.formAction && <input type="hidden" name="_method" value="PUT" /> }
                             <input type="hidden" name="_token" value={props.csrf_token} />
 

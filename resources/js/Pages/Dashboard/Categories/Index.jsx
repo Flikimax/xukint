@@ -91,7 +91,6 @@ export default function Index(props) {
                     </div>
                 }
 
-
                 <Pagination links={props.list?.links} />
             </Dashboard>
         </Authenticated>

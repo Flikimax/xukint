@@ -1,25 +1,7 @@
 import { Link, Head } from '@inertiajs/inertia-react';
 
 export default function Header(props) {
-    const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Flikimax';
-
-    console.log('props', props);
-
-    // let title = props?.title ? props.title : appName;
-
-    let casa;
-
-    if ( props?.title ) {
-        casa = props.title;
-        console.log('1', casa);
-    } else {
-        casa = appName;
-        console.log('2', casa);
-    }
-
-    const CustomHead = props?.title 
-        ? <Head title={props.title} />
-        : <></>
+    const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Xukint';
 
     return (
         <>
