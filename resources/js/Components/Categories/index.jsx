@@ -11,8 +11,8 @@ export default function Categories( props ) {
 
     return (
         <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 mt-1">
-            <h4 className='text-center mb-4'>
-                Categorias
+            <h4 className='text-center mb-4 hidden lg:block'>
+                Categories
             </h4>
         
             <div className="container flex flex-wrap justify-center items-center mx-auto">
@@ -30,7 +30,7 @@ export default function Categories( props ) {
                                 href="/"
                                 className={`${ slugActived?? 'bg-black text-white' } block py-1 px-2 my-1 rounded-md shadow hover:bg-black hover:text-white`}
                             >
-                                Todas
+                                All
                             </Link>
                         </li>
 
