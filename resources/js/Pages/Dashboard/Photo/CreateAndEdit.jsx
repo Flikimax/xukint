@@ -62,7 +62,7 @@ export default function CreateAndEdit(props) {
                                             name="photo_category_id" 
                                             autoComplete="photo_category_id" 
                                             className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                            defaultValue={ props.photo.photo_category_id }
+                                            defaultValue={ props.photo?.photo_category_id }
                                         >
                                             {
                                                 props.categories && 
