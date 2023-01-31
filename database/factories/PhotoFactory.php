@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\photo>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Photo>
  */
 class PhotoFactory extends Factory
 {
@@ -23,12 +23,13 @@ class PhotoFactory extends Factory
             'url' => $this->faker->imageUrl(
                 '1080',
                 '1350'
-            )
-            // 'url' => $this->faker->image(
-            //     'public/storage/images', 
-            //     1080, 
-            //     1350
-            // ),
+            ),
+            'url_nsfw' => $this->faker->imageUrl(
+                '1080',
+                '1350'
+            ),
+            'slug' => $this->faker->slug,
+            'nsfw' => $this->faker->boolean
         ];
     }
 }

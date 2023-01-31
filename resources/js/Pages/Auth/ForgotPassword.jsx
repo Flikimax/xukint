@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '@/Components/Button';
-import Guest from '@/Layouts/Guest';
-import Input from '@/Components/Input';
+import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
-import { Head, useForm } from '@inertiajs/inertia-react';
+import PrimaryButton from '@/Components/PrimaryButton';
+import TextInput from '@/Components/TextInput';
+import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
 export default function ForgotPassword({ status }) {
     const { data, setData, post, processing, errors } = useForm({
@@ -21,18 +21,20 @@ export default function ForgotPassword({ status }) {
     };
 
     return (
-        <Guest>
+        <GuestLayout>
             <Head title="Forgot Password" />
 
             <div className="mb-4 text-sm text-gray-500 leading-normal">
-                Forgot your password? No problem. Just let us know your email address and we will email you a password
-                reset link that will allow you to choose a new one.
+                ¿Ha olvidado su contraseña? No se preocupe.
+                <br />
+                <br />
+                Indíquenos su dirección de correo electrónico y le enviaremos un enlace para restablecer la contraseña que le permitirá elegir una nueva.
             </div>
 
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
             <form onSubmit={submit}>
-                <Input
+                <TextInput
                     type="text"
                     name="email"
                     value={data.email}
@@ -44,11 +46,29 @@ export default function ForgotPassword({ status }) {
                 <InputError message={errors.email} className="mt-2" />
 
                 <div className="flex items-center justify-end mt-4">
-                    <Button className="ml-4" processing={processing}>
-                        Email Password Reset Link
-                    </Button>
+                    <PrimaryButton className="w-full !block text-center" processing={processing}>
+                        Restablecer contraseña
+                    </PrimaryButton>
                 </div>
             </form>
-        </Guest>
+
+            <hr className='mt-4' />
+
+            <div class="flex items-center flex-col md:flex-row justify-between mt-4">
+                <Link
+                    href={route('login')}
+                    className="my-2 text-sm text-gray-600 hover:text-gray-900"
+                >
+                    Iniciar sesión
+                </Link>
+
+                <Link
+                    href={route('register')}
+                    className="my-2 text-sm text-gray-600 hover:text-gray-900"
+                >
+                    Registrarse
+                </Link>
+            </div>
+        </GuestLayout>
     );
 }

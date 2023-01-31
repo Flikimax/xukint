@@ -1,21 +1,25 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Database\Seeders\Permissions;
 use Inertia\Inertia;
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'permission:dashboard'])->name('dashboard');
 
-Route::middleware(['auth', 'verified'])->prefix('/dashboard')->name('dashboard.')->group(function () {
-    Route::resource('photos', App\Http\Controllers\Dashboard\PhotosController::class)->except([
-        'show'
-    ]);
-    Route::resource('categories', App\Http\Controllers\Dashboard\PhotoCategoriesController::class)->except([
-        'show'
-    ]);
+Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')->group(function () {
+    $routeDashboard = 'App\Http\Controllers\Dashboard';
+    $permissions = Permissions::getPermissions();
 
-    Route::resource('medias', App\Http\Controllers\Dashboard\MediasController::class)->only([
-        'index', 'destroy'
-    ]);
-    
-}); 
+    Route::resource('/users', "$routeDashboard\UserController")
+        ->except('show')
+        ->middleware('role:Super Admin');
+
+    Route::resource('/photos', "$routeDashboard\PhotoController")
+        ->except('show')
+        ->middleware('permission:' . implode('|', $permissions['photos']));
+
+    Route::delete('photos/{photo}/{photoName}', ["$routeDashboard\PhotoController", 'destroyPhoto'])
+        ->name('photos.destroyPhoto');
+});

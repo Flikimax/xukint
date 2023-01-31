@@ -14,8 +14,8 @@ class PhotoSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Photo::factory()
-        ->count(150)
-        ->create();
+        // \App\Models\Photo::factory()
+        //     ->count(150)
+        //     ->create();
     }
 }

@@ -1,9 +1,9 @@
 <?php
+
 namespace App\Http\Controllers\Web;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -20,7 +20,7 @@ class HomeController extends Controller
      */
     public static function index()
     {
-        $photos = Photo::orderBy('created_at', 'desc')->paginate(30);
+        $photos = Photo::whereNotNull('url')->orderBy('created_at', 'desc')->paginate(30);
         $categories = PhotoCategory::all();
 
         return Inertia::render('Home', [
