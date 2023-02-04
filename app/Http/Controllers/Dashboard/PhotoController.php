@@ -74,6 +74,16 @@ class PhotoController extends Controller
      */
     public function store(PhotoRequest $request): RedirectResponse
     {
+        $request->validate([
+            'photo_category_id' => 'required|integer',
+            'title' => 'required|string',
+            'description' => 'nullable|string',
+            'photo' => 'mimes:jpg,jpeg,png', 
+            'photo_nsfw' => 'mimes:jpg,jpeg,png', 
+            'slug' => 'required|unique:photos,slug',
+            'nsfw' => 'required',
+        ]);
+        
         $path = (bool) $request->nsfw ? $this->pathsPhotos['photo_nsfw'] : $this->pathsPhotos['photo'];
         $photo = Photo::create([
             'photo_category_id' => $request->photo_category_id,

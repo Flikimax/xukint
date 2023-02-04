@@ -13,12 +13,12 @@ export default function Photos(props) {
             <div className='list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 grid-flow-dense'>
                 {
                     props.photos.data.map(photo => {
-                        const user = props.auth.user ? props.auth.user.name : false;
+                        const user = props?.auth.user ? props.auth.user.name : '';
                         let src = photo.url;
                         if ( photo.nsfw == 1 && props.auth.user ) {
                             src = photo.url;
                         } else if ( photo.nsfw == 1 && ! props.auth.user ) {
-                            src = photo.url_nsfw ? photo.url_nsfw : 'storage/assets/img/NSFW.jpg';
+                            src = photo.url_nsfw ? photo.url_nsfw : '/assets/img/NSFW.jpg';
                         }
 
                         return (

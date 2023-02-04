@@ -20,7 +20,7 @@ function fullWidth(event) {
 
     let caption = event.alt;
 
-    if ( event.getAttribute("nsfw") && ! event.getAttribute("user   ") ) {
+    if ( event.getAttribute("nsfw") == 1 && ! event.getAttribute("user") ) {
         caption += " (Para ver esta foto se requiere que <a style='font-weight: bold;text-decoration-line: underline;' href='/login'>inicies sesión</a>)";
     }
     captionText.innerHTML = caption;
@@ -34,8 +34,9 @@ function closeModal() {
 
 window.addEventListener('click', function(e){   
     const modal = document.getElementById("modal");
+    const photoModal = document.getElementById('photo-modal');
 
-    if ( ! document.getElementById('photo-modal').contains(e.target) && modal.classList.contains('ready-close') ) {
+    if ( photoModal && ! photoModal.contains(e.target) && modal.classList.contains('ready-close') ) {
         closeModal();
     } else {
         modal.classList.add("ready-close");

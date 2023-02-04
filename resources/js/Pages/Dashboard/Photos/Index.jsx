@@ -9,7 +9,6 @@ import { Link } from '@inertiajs/inertia-react';
 export default function Index(props) {
     const title = 'Fotos';
     const { photos, categories, search, filters } = props;
-
     const { data, setData, get, errors } = useForm(filters);
 
     const header = {
@@ -37,7 +36,6 @@ export default function Index(props) {
         event.preventDefault();
         get( 'photos' );
     }
-
 
     return (
         <AuthenticatedLayout
@@ -121,12 +119,9 @@ export default function Index(props) {
                             <div className='list grid lg:grid-cols-4 grid-cols-2 '>
                                 {
                                     photos?.data.length > 0 && photos.data.map(photo => {
-
-                                        const src = photo.url ? photo.url : '/storage/assets/img/photoless.jpg';
-
+                                        const src = photo.url ? photo.url : '/assets/img/photoless.jpg';
                                         return (
                                             <div className={`grid-item relative photo-${photo.id}`} key={photo.id} >
-    
                                                 <Link href={route('dashboard.photos.edit', [photo])} >
                                                     <div className="overlay w-full h-full absolute lg:bg-black hover:lg:opacity-60 opacity-0 transition ease-in-out delay-400 top-0 left-0"></div>
                                                     <picture>
@@ -134,7 +129,6 @@ export default function Index(props) {
                                                         <img className='w-full h-full block object-cover' src={src} alt={photo.tile} />
                                                     </picture>
                                                 </Link>
-    
                                             </div>
                                         )
                                     })

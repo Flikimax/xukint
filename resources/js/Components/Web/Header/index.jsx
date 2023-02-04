@@ -34,7 +34,7 @@ export default function Header({props, title}) {
 
                     <Link href={route('home')} className="inline-block text-center">
                         <img
-                            src="/storage/assets/img/Logo.svg"
+                            src="/assets/img/Logo.svg"
                             alt="Logo"
                             className="lg-h-12 lg-12"
                         />  

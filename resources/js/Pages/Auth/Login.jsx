@@ -85,7 +85,7 @@ export default function Login({ status, canResetPassword }) {
 
             <hr className='mt-4' />
 
-            <div class="flex items-center flex-col md:flex-row justify-between mt-4">
+            <div className="flex items-center flex-col md:flex-row justify-between mt-4">
                 {canResetPassword && (
                     <Link
                         href={route('password.request')}

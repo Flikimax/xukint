@@ -54,7 +54,7 @@ export default function ForgotPassword({ status }) {
 
             <hr className='mt-4' />
 
-            <div class="flex items-center flex-col md:flex-row justify-between mt-4">
+            <div className="flex items-center flex-col md:flex-row justify-between mt-4">
                 <Link
                     href={route('login')}
                     className="my-2 text-sm text-gray-600 hover:text-gray-900"
