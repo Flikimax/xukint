@@ -1,0 +1,1 @@
+.modal-content,#caption{-webkit-animation-name:zoom;-webkit-animation-duration:.6s;animation-name:zoom;animation-duration:.6s}@keyframes zoom{0%{transform:scale(0)}to{transform:scale(1)}}.list.grid img{aspect-ratio:4/5;-o-object-fit:cover;object-fit:cover}
