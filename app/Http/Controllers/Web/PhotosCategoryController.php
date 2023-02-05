@@ -20,7 +20,7 @@ class PhotosCategoryController extends Controller
     {
         return Inertia::render('Home', [
             'categories' => PhotoCategory::all(),
-            'photos' => $photoCategory->photoCategories()->paginate(30),
+            'photos' => $photoCategory->photoCategories()->orderByDesc('id')->paginate(30),
             'active' => $photoCategory->slug
         ]);
     }
