@@ -12,7 +12,7 @@ export default function Photos(props) {
         <div className='xukint-photos my-4'>
             <div className='list grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 grid-flow-dense'>
                 {
-                    props.photos.data.map(photo => {
+                    props.photos.data.map((photo, index) => {
                         const user = props?.auth.user ? props.auth.user.name : '';
                         let src = photo.url;
                         if ( photo.nsfw == 1 && props.auth.user ) {
@@ -38,6 +38,7 @@ export default function Photos(props) {
                                         src={src}
                                         alt={photo.title}
                                         nsfw={photo.nsfw}
+                                        position={index+1}
                                         user={user}
                                     />
                                 </picture>
