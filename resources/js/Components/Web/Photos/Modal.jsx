@@ -86,7 +86,6 @@ function nextPhoto() {
 
     position++;
     const nextPhoto = document.querySelector(`.xukint-photos picture img[position="${position}"]`);
-    console.log(position, nextPhoto);
     closeModal();
     nextPhoto.click();
 }
