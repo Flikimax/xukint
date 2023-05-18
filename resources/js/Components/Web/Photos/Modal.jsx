@@ -1,3 +1,4 @@
+import { parse } from 'postcss';
 import './modalStyle.css';
 
 function fullWidthOverlay(e) {
@@ -62,9 +63,8 @@ window.addEventListener('click', function(e){
 function lastPhoto() {
     const photoModal = document.getElementById('photo-modal');
     let position = photoModal.getAttribute('position');
-    const limit = photoModal.getAttribute('limit');
 
-    if (position < 2) {
+    if (parseInt(position) < 2) {
         return;
     }
 
@@ -80,12 +80,13 @@ function nextPhoto() {
     let position = photoModal.getAttribute('position');
     const limit = photoModal.getAttribute('limit');
 
-    if (position >= limit) {
+    if (parseInt(position) >= parseInt(limit)) {
         return;
     }
 
     position++;
     const nextPhoto = document.querySelector(`.xukint-photos picture img[position="${position}"]`);
+    console.log(position, nextPhoto);
     closeModal();
     nextPhoto.click();
 }
