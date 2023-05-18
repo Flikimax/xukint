@@ -111,6 +111,7 @@ function Modal() {
             <img 
                 className="modal-content object-contain m-auto block w-auto" 
                 id="photo-modal"
+                style={{maxHeight : 'calc(80vh)'}}
             />
             <div id="next-photo" className='absolute w-10 h-full right-0 top-0 grid content-center'>
                 <img className='w-8 bg-gray-900/20 justify-self-end cursor-pointer' src="/assets/img/arrow-small-right.svg" alt="Arrow" onClick={nextPhoto}/>
